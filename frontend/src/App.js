@@ -1,10 +1,11 @@
 import './App.css';
+import LandingMain from './components/landingpage/LandingMain';
 
 function App() {
   return (
     <div className="App">
-      <h2 className="name">Nimsara</h2>
-      </div>
+      <LandingMain/>
+    </div>
   );
 }
 
