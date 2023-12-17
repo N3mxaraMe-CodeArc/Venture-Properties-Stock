@@ -43,8 +43,6 @@ const Form = () => {
       Qunatity.current.value = "";
       price.current.value = "";
       setTotal(0);
-
-      console.log(data);
    }
 
 
