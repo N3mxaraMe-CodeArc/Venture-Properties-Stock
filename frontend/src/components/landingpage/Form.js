@@ -11,6 +11,9 @@ const Form = () => {
    const Qunatity = useRef();
    const price = useRef();
 
+   const date = new Date();
+
+
    const [Total, setTotal] = useState(0);
 
    const handleChange = () => {
@@ -27,6 +30,7 @@ const Form = () => {
          category: category.current.value,
          subCategory: subCategory.current.value,
          quantity: Qunatity.current.value,
+         date: date,
          price: price.current.value,
          total: Total
       }
@@ -48,11 +52,12 @@ const Form = () => {
       <Fragment>
          <form action="" className={classes.dataForm}>
             <img src={Logo} className={classes.logo} alt="" srcset="" />
-            <IInput label={"Site name "} currentref={siteName} value={siteName.current.value} placeholder={"Enter your Site Name"} />
-            <IInput label={"Catergory"} currentref={category} value={category.current.value} placeholder={"Enter your Catergory"} />
-            <IInput label={"Sub Catergory"} currentref={subCategory} value={subCategory.current.value} placeholder={"Enter the Sub Catergory"} />
-            <IInput label={"Quantity"} onChange={handleChange} value={Qunatity.current.value} currentref={Qunatity} placeholder={"Enter your Quantity"} />
-            <IInput label={"Price    "} onChange={handleChange} value={price.current.value} currentref={price} placeholder={"Enter your Price per one"} />
+            <IInput type={"text"} label={"Site name "} currentref={siteName} placeholder={"Enter your Site Name"} />
+            <IInput type={"text"} label={"Catergory"} currentref={category} placeholder={"Enter your Catergory"} />
+            <IInput type={"text"} label={"Sub Catergory"} currentref={subCategory} placeholder={"Enter the Sub Catergory"} />
+            <IInput type={"number"} label={"Quantity"} onChange={handleChange} currentref={Qunatity} placeholder={"Enter your Quantity"} />
+            <IInput type={"date"} label={"Current Date"} value={date.toISOString().split('T')[0]} placeholder={"Enter today's date"} disable />
+            <IInput type={"number"} label={"Price"} onChange={handleChange} currentref={price} placeholder={"Enter your Price per one"} />
             <div className="row mt-4">
                <div className="col-6">
                   <h5>Total Price : <span>Rs. {Total}</span></h5>

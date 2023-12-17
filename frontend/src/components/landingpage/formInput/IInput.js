@@ -21,9 +21,9 @@ IInput.propTypes = {
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  currentref: PropTypes.object.isRequired,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired
+  currentref: PropTypes.object,
+  onChange: PropTypes.func,
+  value: PropTypes.number
 }
 
 
