@@ -28,8 +28,8 @@ const Tablemodel = ({ data }) => {
               <td>{element.subCategory}</td>
               <td>{element.date.toLocaleDateString()}</td>
               <td>{element.quantity}</td>
-              <td>{element.price}</td>
-              <td>{element.total}</td>
+              <td>Rs. {element.price}</td>
+              <td>Rs. {element.total}</td>
             </tr>
           ))}
         </tbody>

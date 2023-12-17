@@ -3,7 +3,7 @@ import Logo from '../../Assets/Sendpage/LogoPng.png';
 import classes from './Form.module.css'
 import IInput from './formInput/IInput';
 
-const Form = ({onSubmit}) => {
+const Form = ({ onSubmit }) => {
 
    const siteName = useRef();
    const category = useRef();
@@ -23,6 +23,7 @@ const Form = ({onSubmit}) => {
 
    const handleSubmit = (e) => {
       e.preventDefault();
+
       console.log("Submitted");
 
       const data = {
@@ -35,18 +36,29 @@ const Form = ({onSubmit}) => {
          total: Total
       }
 
-      console.log(data);
-      onSubmit(data);
+      if (Qunatity.current.value === "" || 
+      price.current.value === "" || 
+      Qunatity.current.value <= 0 || 
+      price.current.value <= 0 || 
+      siteName.current.value === "" || 
+      category.current.value === "") {
 
-      siteName.current.value = "";
-      category.current.value = "";
-      subCategory.current.value = "";
-      Qunatity.current.value = "";
-      price.current.value = "";
-      setTotal(0);
+         alert("Please fill the form");
+         console.log("Please fill the form");
+
+         return;
+      } else {
+         console.log(data);
+         onSubmit(data);
+
+         siteName.current.value = "";
+         category.current.value = "";
+         subCategory.current.value = "";
+         Qunatity.current.value = "";
+         price.current.value = "";
+         setTotal(0);
+      }
    }
-
-
    return (
       <Fragment>
          <form action="" className={classes.dataForm}>
