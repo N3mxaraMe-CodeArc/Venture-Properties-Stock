@@ -5,33 +5,54 @@ import IInput from './formInput/IInput';
 
 const Form = () => {
 
-   const [Total, setTotal] = useState(0);
-
-   const handleChange = () => {
-      setTotal(Qunatity.current.value * price.current.value);
-   }
-
-   const handleSubmit = (e) => {
-      e.preventDefault();
-      console.log("Submitted");
-
-   } 
-
    const siteName = useRef();
    const category = useRef();
    const subCategory = useRef();
    const Qunatity = useRef();
    const price = useRef();
 
+   const [Total, setTotal] = useState(0);
+
+   const handleChange = () => {
+      setTotal(Qunatity.current.value * price.current.value);
+   }
+
+
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log("Submitted");
+
+      const data = {
+         sitename: siteName.current.value,
+         category: category.current.value,
+         subCategory: subCategory.current.value,
+         quantity: Qunatity.current.value,
+         price: price.current.value,
+         total: Total
+      }
+
+      console.log(data);
+
+      siteName.current.value = "";
+      category.current.value = "";
+      subCategory.current.value = "";
+      Qunatity.current.value = "";
+      price.current.value = "";
+      setTotal(0);
+
+      console.log(data);
+   }
+
+
    return (
       <Fragment>
          <form action="" className={classes.dataForm}>
             <img src={Logo} className={classes.logo} alt="" srcset="" />
-            <IInput label={"Site name "} currentref={siteName} placeholder={"Enter your Site Name"} />
-            <IInput label={"Catergory"} currentref={category} placeholder={"Enter your Catergory"} />
-            <IInput label={"Sub Catergory"} currentref={subCategory} placeholder={"Enter the Sub Catergory"} />
-            <IInput label={"Quantity"} onChange={handleChange} currentref={Qunatity} placeholder={"Enter your Quantity"} />
-            <IInput label={"Price    "} onChange={handleChange} currentref={price} placeholder={"Enter your Price per one"} />
+            <IInput label={"Site name "} currentref={siteName} value={siteName.current.value} placeholder={"Enter your Site Name"} />
+            <IInput label={"Catergory"} currentref={category} value={category.current.value} placeholder={"Enter your Catergory"} />
+            <IInput label={"Sub Catergory"} currentref={subCategory} value={subCategory.current.value} placeholder={"Enter the Sub Catergory"} />
+            <IInput label={"Quantity"} onChange={handleChange} value={Qunatity.current.value} currentref={Qunatity} placeholder={"Enter your Quantity"} />
+            <IInput label={"Price    "} onChange={handleChange} value={price.current.value} currentref={price} placeholder={"Enter your Price per one"} />
             <div className="row mt-4">
                <div className="col-6">
                   <h5>Total Price : <span>Rs. {Total}</span></h5>
@@ -47,8 +68,5 @@ const Form = () => {
    )
 }
 
-export default Form;
 
-// Form.propTypes = {
-//    Total: PropTypes.number.isRequired,
-// }
+export default Form;
