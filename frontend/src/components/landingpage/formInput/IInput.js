@@ -13,8 +13,6 @@ const IInput = ({ label, type, placeholder, currentref, onChange,value }) => {
   )
 }
 
-
-
 export default IInput;
 
 IInput.propTypes = {
