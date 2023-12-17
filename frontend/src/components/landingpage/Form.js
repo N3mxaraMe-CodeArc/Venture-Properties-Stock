@@ -15,7 +15,7 @@ const Form = () => {
       e.preventDefault();
       console.log("Submitted");
 
-   }
+   } 
 
    const siteName = useRef();
    const category = useRef();
