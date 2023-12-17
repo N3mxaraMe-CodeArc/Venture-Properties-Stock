@@ -1,11 +1,29 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const IInput = () => {
+const IInput = ({ label, type, placeholder, currentref, onChange }) => {
+
   return (
-    <div>
-      
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">{label}</span>
+      </div>
+      <input type={type} ref={currentref} onChange={onChange} class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder={placeholder} />
     </div>
   )
 }
 
-export default IInput
+
+
+export default IInput;
+
+IInput.propTypes = {
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  currentref: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired,
+}
+
+
+
