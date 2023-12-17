@@ -3,7 +3,7 @@ import Logo from '../../Assets/Sendpage/LogoPng.png';
 import classes from './Form.module.css'
 import IInput from './formInput/IInput';
 
-const Form = () => {
+const Form = ({onSubmit}) => {
 
    const siteName = useRef();
    const category = useRef();
@@ -36,6 +36,7 @@ const Form = () => {
       }
 
       console.log(data);
+      onSubmit(data);
 
       siteName.current.value = "";
       category.current.value = "";
